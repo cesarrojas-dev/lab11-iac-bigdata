@@ -1,0 +1,9 @@
+# Lab 13: Docker Compose lo combina solo con docker-compose.yml.
+# Athena en Floci necesita crear el contenedor auxiliar floci-duck.
+services:
+  floci:
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    environment:
+      FLOCI_RUN_AS_ROOT: "true"
+      FLOCI_SERVICES_DOCKER_NETWORK: "${COMPOSE_PROJECT_NAME}_default"
